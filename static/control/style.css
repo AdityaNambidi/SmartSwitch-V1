@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track{
+    background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #fb8121;
+}
+
+.bg {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(27, 35, 38, 0.9);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: fixed;
+    top: 0;
+    z-index: -1000;
+}
+
+.control {
+    width: 100%;
+    height: 100vh;
+    font-family: 'Montserrat';
+}
+
+.control h1 {
+    font-size: 60px;
+    text-align: center;
+    color: #fb8121;
+    margin-top: 50px;
+}
+
+.control h1 span {
+    letter-spacing: -15px;
+}
+
+.control .add {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 100px;
+    border: none;
+    border-radius: 25px;
+    background-color: #fb8121;
+    color: #e2e2e2;
+    font-size: 35px;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0px 10px 10px rgba(0,0,0,1);
+}
+
+.control .add:hover {
+    background-color: #d16818;
+}
+
+.control .label {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #e2e2e2;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.control h1 span:hover {
+    text-shadow:0 0 10px #fb8121,
+                0 0 20px #fb8121,
+                0 0 40px #fb8121,
+                0 0 80px #fb8121,
+                0 0 120px #fb8121,
+                0 0 160px #fb8121;
+}
+
+.control .notlabel {
+    padding: 20px;
+    color: #e2e2e2
+}
+
+
+.panel {
+    width: 500px;
+    height: 130px;
+    position: relative;
+    background-color: rgb(255,255,255,0.5);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    box-shadow: 0px 10px 10px rgba(0,0,0,1);
+    display: none;
+    
+}
+
+.panelBG {
+    width: 100%;
+    height: 100vh;
+}
+
+
+.panel .switchID {
+    position: relative;
+    top: 40px;
+    left: 30px;
+    width: 300px;
+    height: 30px;
+    font-size: 25px;
+    border-radius: 25px;
+    border: none;
+    padding: 15px;
+    font-family: 'Montserrat';
+    box-shadow: 0px 10px 10px rgba(0,0,0,.5);
+}
+
+.panel .add {
+    position: relative;
+    top: 40px;
+    left: 50px;
+    padding: 15px;
+    font-size: 25px;
+    border-radius: 25px;
+    border: none;
+    font-family: 'Montserrat';
+    color: #e2e2e2;
+    box-shadow: 0px 10px 10px rgba(0,0,0,.5);
+    background-color: #fb8121;    
+}
+
+.panel .add:hover {
+    background-color: #d16818;
+}
+
+.panel .close {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    border: none;
+    background: none;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Montserrat';
+}
+
+.switches {
+    position: relative;
+}
+
+.switch {
+    background-color: #e2e2e2;
+    position: absolute;
+    width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 10px 10px rgba(0,0,0,1);
+    margin-top: 30px;
+    transition: transform .2s;
+
+    border-radius: 25px;
+    padding: 15px;
+
+}
+
+.switch:hover {
+    transform: scale(1.05);
+    /* transform: ; */
+}
+
+.switch * {
+    
+    display: inline-block;
+}
+
+.switch button {
+    border-radius: 50px;
+    padding: 15px;
+    border: none;
+    background-color: #fb8121;
+    color: #e2e2e2;
+    font-size: 21px;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.5);
+}
+
+.switch button:hover {
+    background-color: #d16818;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+
+    .bg {
+        background-image: url("./home2.png");
+        overflow-x: hidden;
+    }
+
+
+    .panel {
+        width: 90%;
+    }
+
+    .panel .switchID {
+        width: 250px;
+    }
+
+    .switch {
+        width: 350px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+
+    .bg {
+        background-image: url("./home.png");
+    }
+
+    .control {
+        margin-left: 6rem;
+    }
+
+    .panelBG {
+        width: 100%;
+        height: 100vh;
+        margin-left: 6rem;
+    }
+    
+
+}
+
+/* Pallelt
+    27, 35, 38 - 1d2228
+    251, 129, 33- fb8121
+    226,226,226 - e2e2e2
+*

@@ -138,7 +138,7 @@
                         state = "Off"
                     }
                     
-                    div.innerHTML = "<p id='" + k + "'>State "+state+"</p>   <p>ID: " + k + "</p>  <button onClick = \"tog('"+ k +"')\">Toggle</button>"
+                    div.innerHTML = "<p id='" + k + "'>State: "+state+"</p>   <p>ID: " + k + "</p>  <button onClick = \"tog('"+ k +"')\">Toggle</button>"
                     
 
                     document.getElementById('switches').appendChild(div);
@@ -150,9 +150,8 @@
         }
 
         function tog(id) {
+            
             var Http = new XMLHttpRequest();
-
-
 
             Http.open("GET", "/switch/"+ id +"/set/" + user['email']);
             Http.send();
@@ -186,7 +185,7 @@
         const switchID = document.getElementById("switchID")
 
         function openPanel() {
-
+            console.log("helo");
             panel.style.display = "block";
         }
 
@@ -219,6 +218,11 @@
             }
 
         }
+
+
+        // NOTIFICATIONS
+
+
 
 
     </script>

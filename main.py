@@ -2,9 +2,48 @@ from flask import Flask, render_template, request, session, redirect, url_for, f
 from threading import Thread
 import os
 import json
+import smtplib
+from email.mime.text import MIMEText
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
+
+
+
+def sendEmail(to):
+
+    Email = "no.reply.smart.switch@gmail.com"    #"no-reply-kodaikanal-otp@gmail.com"
+    Pwd =  "smart_switch_poop"           #"kodaikanal_otp123"
+
+
+    sub = "SmartSwitch sensor status update."
+    body = f"""
+    Your switch is on however the sensor detected that theres no one in the room."""
+
+    msg = MIMEText(body)
+
+
+    msg["Subject" ] = sub   
+    msg["From"] = Email
+    msg["To"] = to[0]
+
+    try:
+
+        smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        smtp_server.ehlo()
+        smtp_server.login(Email, Pwd)
+        smtp_server.sendmail(Email, to, msg.as_string())
+        smtp_server.close()
+        print ("Email sent successfully!")
+        return True
+
+    except Exception as ex:
+
+        print ("Something went wrong….",ex)
+        return False
+
+
+
 
 @app.route("/")
 def Home():
@@ -129,6 +168,25 @@ def switch(id, task, e):
         switches = json.load(open("users.json"))["users"][session["user"]]["switches"]
         
         return switches
+
+    if task == "statusUpdate":
+        users = json.load(open("users.json"))
+
+        state = -1
+        email = ""
+
+        for u in users["users"]:
+            if id in users["users"][u]["switches"]:
+                email = u
+                state = users["users"][u]["switches"][id]
+
+        if state == "1":
+
+            sendEmail(u)
+
+            return "ok"
+
+        return "ok"
 
     return "This page is not for you."
     

@@ -111,12 +111,16 @@
         if (user.length != 0) {
             const data = JSON.parse(user);
 
-            const wrong = false;
+            const wrong = true;
 
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for m in messages %}
-                        wrong = true;
+                        {% if "inncorrect" in m.lower() %}
+
+                            wrong = false
+
+                        {% endif %}
                     {% endfor %}
                 {% endif %}
             {% endwith %}

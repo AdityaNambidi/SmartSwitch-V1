@@ -1,0 +1,67 @@
+.transition {
+    width: 100%;
+    height: 100%;
+}
+
+.cover {
+    position: fixed;
+    height: 220vh;
+    width: 220vh;
+    top: 0;
+    left: -220vh;
+    z-index: 10000;
+}
+
+.layer1 {
+    background-color: #FB8121;
+    animation: slideOut 0.3s ease-in-out backwards;
+    animation-delay: 0.4s;
+}
+
+.layer2 {
+    background-color: #465580;
+    animation: slideOut 0.3s ease-in-out backwards;
+    animation-delay: 0.2s;
+}
+
+.layer3 {
+    background-color: #1E1E24;
+    animation: slideOut 0.3s ease-in-out backwards;
+    
+}
+
+
+.transition.slide .layer1 {
+    background-color: #FB8121;
+    animation: slide 0.3s ease-in-out forwards;
+}
+
+.transition.slide .layer2 {
+    background-color: #465580;
+    animation: slide 0.3s ease-in-out forwards;
+    animation-delay: 0.2s;
+}
+
+.transition.slide .layer3 {
+    background-color: #1E1E24;
+    animation: slide 0.3s ease-in-out forwards;
+    animation-delay: 0.4s;
+}
+
+@keyframes slide {
+    from {
+        left: -220vh;
+    } 
+    to {
+        left: 0;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        left: 0;
+    } 
+    to {
+        left: -220vh;
+    }
+}

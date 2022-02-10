@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='home/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='transition.css') }}">
+        
+        <title>SmartSwitch</title>
+    </head>
+
+    <body>
+
+        <div class="transition">
+            <div class="cover layer1"></div>
+            <div class="cover layer2"></div>
+            <div class="cover layer3"></div>
+        </div>
+
+        <nav class="navbar">
+
+            <ul class="nav">
+
+                <li class="item">
+                    <a href="#" class="link redirect">
+                        <div class="logo"></div>
+                    </a>
+                </li>
+
+                <li class="item">
+                    <a href="/" class="link redirect">
+                        Home
+                    </a>
+                </li>
+
+                <li class="item">
+                    <a href="/#about" class="link redirect">
+                        About
+                    </a>
+                </li>
+
+                <li class="item">
+                    <a href="/login/" class="link redirect">
+                        Log In
+                    </a>
+                </li>
+
+                <li class="item">
+                    <a href="/control" class="link redirect">
+                        Control
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+        
+        <div class="bg"></div>
+
+        <div class="home">
+            
+            <div class="rectangle"></div>
+
+            <h1>
+                <span>s</span>
+                <span>m</span>
+                <span>a</span>
+                <span>r</span>
+                <span>t</span>
+                <br>
+                <span>s</span>
+                <span>w</span>
+                <span>i</span>
+                <span>t</span>
+                <span>c</span>
+                <span>h</span>
+            </h1>
+
+            <p>
+                Make your home smart
+            </p>
+
+        </div>
+
+        <div class="about" id="about">
+            <div class="box">
+                <h1> 
+                    <span>A</span> 
+                    <span>b</span>
+                    <span>o</span>
+                    <span>u</span>
+                    <span>t</span>
+                </h1>
+
+                <p>
+                    We are high school students working on this Smart Home system called SmartSwitch. Users will be able to control all the switches and electronics in their homes through a website. To control a certain switch there wont be any complex electrical wiring required. Instead, anyone can attach one of the detachable boxes that we make near the switch and the system will take care of the rest. So there will not be any permanent changes in the house.<br> <br> Apart from this there will also be a security system. A camera and a locking system will also be placed on the door which you can use to lock or unlock the door from the website. We also plan on giving this system the ability determine weather humans are inside a room or not and then turn of the required switches in order to save electricity.<br><br> We decided to go with this project because we haven't seen any smart home systems like this yet and even the one's that are there are extremely costly and we can make an affordable version. Making our homes smart is the first step to making smart cities.
+                </p>
+                
+            </div>
+            
+
+        </div>
+        
+    </body>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>    
+
+</html>

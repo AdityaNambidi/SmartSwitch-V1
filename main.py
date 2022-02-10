@@ -10,8 +10,8 @@ app.secret_key = os.urandom(24)
 
 def sendEmail(to):
 
-    Email = "no.reply.smart.switch@gmail.com"    #"no-reply-kodaikanal-otp@gmail.com"
-    Pwd =  "smart_switch_poop"           #"kodaikanal_otp123"
+    Email = "no.reply.smart.switch@gmail.com"    
+    Pwd =  ""
 
 
     sub = "SmartSwitch sensor status update."

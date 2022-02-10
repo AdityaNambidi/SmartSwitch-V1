@@ -8,8 +8,6 @@ from email.mime.text import MIMEText
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
-
-
 def sendEmail(to):
 
     Email = "no.reply.smart.switch@gmail.com"    #"no-reply-kodaikanal-otp@gmail.com"
@@ -191,7 +189,7 @@ def switch(id, task, e):
     return "This page is not for you."
     
 def run():
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0')
 
 
 def keep_alive():
@@ -200,4 +198,4 @@ def keep_alive():
 
 
 if __name__ == "__main__":
-    run()
+    keep_alive()

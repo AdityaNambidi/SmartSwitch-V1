@@ -25,6 +25,7 @@
             <div class="cover layer3"></div>
         </div>
 
+
         <nav class="navbar">
 
             <ul class="nav">
@@ -62,6 +63,7 @@
 
         </nav>
         
+        
         <div class="bg"></div>
 
         <div class="control" id="control">
@@ -84,20 +86,20 @@
                 
             </div>
 
-            <button class="add" id="add" onclick="openPanel()">+</button>
-            <p class="label">Click to add a switch</p>
+            <button class="add-switch" id="add" onclick="openPanel()">+</button>
+            <p class="add-label">Click to add a switch</p>
             
 
         </div>
         
 
-        <div class="panelBG">
+        <div class="panel-bg">
 
             <div class="panel" id="panel">
                 
-                <button class="close" id="close" onclick="closePanel()">X</button>
+                <button class="close" id="close" onclick="closePanel()"></button>
 
-                <input type="text" class="switchID" id="switchID" placeholder="Enter Switch ID">
+                <input type="text" class="switch-id" id="switchID" placeholder="Enter Switch ID">
                 <button class="add" id="add" onclick="add()">Add</button>
     
             </div>
@@ -138,7 +140,7 @@
                         state = "Off"
                     }
                     
-                    div.innerHTML = "<p id='" + k + "'>State: "+state+"</p>   <p>ID: " + k + "</p>  <button onClick = \"tog('"+ k +"')\">Toggle</button>"
+                    div.innerHTML = "<p class='switch-state' id='" + k + "'>State: "+state+"</p>   <p>ID: " + k + "</p>  <button onClick = \"tog('"+ k +"')\">Toggle</button>"
                     
 
                     document.getElementById('switches').appendChild(div);
@@ -181,11 +183,10 @@
 
         }
 
-        const panel = document.getElementById("panel");
+        const panel = document.querySelector(".panel-bg");
         const switchID = document.getElementById("switchID")
 
         function openPanel() {
-            console.log("helo");
             panel.style.display = "block";
         }
 

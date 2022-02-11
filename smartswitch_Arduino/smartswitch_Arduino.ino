@@ -41,7 +41,7 @@ void loop() {
 
     String s = GetData(id, "get");
 
-  Serial.println(s);
+    Serial.println(s);
 
     if (_i == 0){
       state = s;
@@ -88,34 +88,46 @@ void Stop(){
 
 String GetData(String id, String task){
 
-//  WiFiClientSecure httpsClient;    //Declare object of class WiFiClient
-//
-//
-//  //Serial.printf("Using fingerprint '%s'\n", key);
-//  httpsClient.setFingerprint(key);
-//  
-//  //Serial.print("HTTPS Connecting");
-//  int r=0; //retry counter
-//  while((!httpsClient.connect(host, httpsPort)) && (r < 30)){
-//      delay(100);
-//      //Serial.print(".");
-//      r++;
-//  }
-//  
-//  String Link = "/switch/" + id + "/" + task + "/x";
-//
-////  Serial.print("requesting URL: ");
-// // Serial.println(host+Link);
-//
-//  httpsClient.print(String("GET ") + Link + " HTTP/1.1\r\n" +
-//               "Host: " + host + "\r\n" +               
-//               "Connection: close\r\n\r\n");
-//
-//  String line;
-//   
-//  line = httpsClient.readStringUntil('\n');  //Read Line by Line
-//
-//  return line;
+  WiFiClientSecure httpsClient;    //Declare object of class WiFiClient
+
+
+  //Serial.printf("Using fingerprint '%s'\n", key);
+  httpsClient.setFingerprint(key);
+  
+  //Serial.print("HTTPS Connecting");
+  int r=0; //retry counter
+  while((!httpsClient.connect(host, httpsPort)) && (r < 30)){
+      delay(100);
+      //Serial.print(".");
+      r++;
+  }
+  
+  String Link = "/switch/" + id + "/" + task + "/x";
+
+//  Serial.print("requesting URL: ");
+ // Serial.println(host+Link);
+
+  httpsClient.print(String("GET ") + Link + " HTTP/1.1\r\n" +
+               "Host: " + host + "\r\n" +               
+               "Connection: close\r\n\r\n");
+
+
+  while (httpsClient.connected()) {
+    String line = httpsClient.readStringUntil('\n');
+    if (line == "\r") {
+      Serial.println("headers received");
+      break;
+    }
+  }
+
+  
+  String line;
+   
+  while(httpsClient.available()){        
+    line = httpsClient.readStringUntil('\n');  //Read Line by Line
+  }
+
+  return line;
 
 
 }

@@ -22,15 +22,26 @@
 }
 
 .link .logo {
-    width: 55px;
-    height: 55px;
-    background-image: url("./logo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+    width: 80px;
+    margin-left: -10px;
+    transition: all 0.4s;
 }
 
-.link .logo:hover {
-    background-image: url("./logoHover.png");
+.link .logo * {
+    fill: white;
+    stroke: white;
+    transition: all 0.4s;
+}
+
+.link .logo path {
+
+    fill: white;
+}
+
+.link .logo:hover * {
+    fill: #fb8121;
+    stroke: #fb8121;
+    filter: drop-shadow( 0 0 10px  #fb8121);
 }
 
 @media only screen and (max-width: 600px) {

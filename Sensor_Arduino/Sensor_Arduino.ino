@@ -10,12 +10,8 @@ String id = "5576";
 
 int pirSensor = 2;
 
-float waitTime = 10000;
-float increment = 210;
-
 void setup() {
   pinMode(pirSensor, INPUT);
-  pinMode(0, OUTPUT);
   
   Serial.begin(9600);
 
@@ -36,19 +32,15 @@ void setup() {
 
 void loop() {
 
-  delay(10000);
-
   float sensorValue = digitalRead(pirSensor);
 
   if (sensorValue == HIGH) {
-    
-    digitalWrite(0, HIGH);
-    delay(5000);
-  
+      
+    delay(12000);
   } else {
-    digitalWrite(0, LOW);
     notify(id ); 
   }
+
 }
 
 

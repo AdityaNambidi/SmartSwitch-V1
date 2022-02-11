@@ -128,7 +128,7 @@ def switch(id, task, e):
         elif state == "1":
             state = "0"
 
-        users["users"][session["user"]]["switches"][id] = state
+        users["users"][e]["switches"][id] = state
 
         open("users.json", "w").write(json.dumps(users, indent = 4))
 
@@ -180,7 +180,7 @@ def switch(id, task, e):
 
         if state == "1":
 
-            sendEmail(u)
+            sendEmail(email)
 
             return "ok"
 
@@ -198,4 +198,4 @@ def keep_alive():
 
 
 if __name__ == "__main__":
-    keep_alive()
+    run() #keep_alive()

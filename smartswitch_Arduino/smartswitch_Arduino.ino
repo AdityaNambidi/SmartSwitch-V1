@@ -49,9 +49,9 @@ void loop() {
     }
 
     if (state != s) {
-      if (s == "0"){  // 0 stands for off and 1 stands for on
+      if (s == "1"){  // 0 stands for off and 1 stands for on
         Off();
-      } else if (s == "1"){
+      } else if (s == "01"){
         On();
       }
 
